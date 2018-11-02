@@ -158,6 +158,7 @@ Could not find employee 15455
 ```
 
 ## Сборка приложения
+Сборка выполняется в jar файл со встроенным tomcat контейнером.
 Для получения jar-файла приложения необходимо выполнить команду
 ```
 mvn clean package
@@ -178,4 +179,17 @@ server.port={номер порта}
 spring.datasource.url=jdbc:postgresql://localhost:5432/{название базы данных} 
 spring.datasource.username={логин}
 spring.datasource.password={пароль}
+```
+
+#### Настройка БД
+Для хранения данных используется PostgreSQL, настроить базу данных под заданные параметры можно следующим образом
+
+```
+$ psql -h localhost -U postgres
+> CREATE database server;
+> CREATE database test;
+> CREATE role program WITH password 'test';
+> GRANT ON PRIVILEGES ON database server TO program;
+> GRANT ON PRIVILEGES ON database test TO program;
+> ALTER role program WITH login;
 ```
