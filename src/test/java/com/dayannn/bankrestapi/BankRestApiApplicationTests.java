@@ -19,6 +19,7 @@ import org.springframework.web.util.NestedServletException;
 import javax.transaction.Transactional;
 
 import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -139,6 +140,8 @@ public class BankRestApiApplicationTests {
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content("{\"money\":10}"))
                 .andExpect(status().isOk());
+
+        assertEquals(10L, (long) repo.getOne(acc1.getId()).getBalance());
     }
 
     // withdrawFromAccount tests
@@ -199,6 +202,8 @@ public class BankRestApiApplicationTests {
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content("{\"money\":10}"))
                 .andExpect(status().isOk());
+
+        assertEquals(90L, (long) repo.getOne(acc2.getId()).getBalance());
     }
 
     // getAccountBalance tests
