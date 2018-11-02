@@ -57,13 +57,12 @@ curl -X PUT -i --header "Content-Type: application/json" -d "{"""money""":1}" lo
 ```
 
 ```
-HTTP/1.1 500
-Content-Type: application/json;charset=UTF-8
-Transfer-Encoding: chunked
-Date: Fri, 02 Nov 2018 22:42:21 GMT
-Connection: close
+HTTP/1.1 404
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 29
+Date: Fri, 02 Nov 2018 23:05:55 GMT
 
-{"timestamp":"2018-11-02T22:42:21.119+0000","status":500,"error":"Internal Server Error","message":"Could not find employee 1555","path":"/bankaccount/1555/deposit"}
+Could not find employee 1555
 ```
 
 * Указана неверная (отрицательная) сумма
@@ -96,13 +95,12 @@ Date: Fri, 02 Nov 2018 22:47:53 GMT
 curl -X PUT -i --header "Content-Type: application/json" -d "{"""money""":10}" localhost:8080/bankaccount/1555/withdraw
 ```
 ```
-HTTP/1.1 500
-Content-Type: application/json;charset=UTF-8
-Transfer-Encoding: chunked
-Date: Fri, 02 Nov 2018 22:48:07 GMT
-Connection: close
+HTTP/1.1 404
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 29
+Date: Fri, 02 Nov 2018 23:05:55 GMT
 
-{"timestamp":"2018-11-02T22:48:07.753+0000","status":500,"error":"Internal Server Error","message":"Could not find employee 1555","path":"/bankaccount/1555/withdraw"}
+Could not find employee 1555
 ```
 
 * Указана неверная (отрицательная сумма)
@@ -151,13 +149,12 @@ Date: Fri, 02 Nov 2018 22:51:34 GMT
 curl -X GET -i localhost:8080/bankaccount/1555/balance
 ```
 ```
-HTTP/1.1 500
-Content-Type: application/json;charset=UTF-8
-Transfer-Encoding: chunked
-Date: Fri, 02 Nov 2018 22:51:52 GMT
-Connection: close
+HTTP/1.1 404
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 29
+Date: Fri, 02 Nov 2018 23:05:55 GMT
 
-{"timestamp":"2018-11-02T22:51:52.325+0000","status":500,"error":"Internal Server Error","message":"Could not find employee 1555","path":"/bankaccount/1555/balance"}
+Could not find employee 15455
 ```
 
 ## Сборка приложения
