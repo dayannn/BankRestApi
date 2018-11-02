@@ -37,4 +37,11 @@ public class GlobalExceptionHandler {
     String incorrectSumHandler(IncorrectSumException ex) {
         return ex.getMessage();
     }
+
+    @ResponseBody
+    @ExceptionHandler(NotEnoughMoneyException.class)
+    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
+    String notEnoughMoneyHandler(NotEnoughMoneyException ex) {
+        return ex.getMessage();
+    }
 }
