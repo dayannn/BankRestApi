@@ -16,6 +16,8 @@ public class BankAccount {
     @Column(name = "balance")
     private Long balance;
 
+    public BankAccount(){}
+
     public BankAccount(Integer id) {
         this(id, Long.valueOf(0));
     }
